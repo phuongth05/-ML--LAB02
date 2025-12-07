@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APPLICATION TEST LAB02 - Multi Style</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>LAB02 - SOFTMAX REGRESSION</h1>
+    <div class="main-wrapper">
+        <div class="card">
+            <div class="canvas-container">
+                <canvas id="drawCanvas" width="280" height="280"></canvas>
+            </div>
+            
+            <div class="control-panel">
+                <select id="modelSelect" class="model-select" onchange="changeTheme(this.value)">
+                    <option value="pixel">Normalization</option>
+                    <option value="sobel">Edge Normalization</option>
+                    <option value="block">Block Average</option>
+                </select>
+
+                <div class="row-1">
+                    <button class="btn btn-secondary" onclick="clearCanvas()">Clear</button>
+                    <label for="uploadInput" class="btn file-upload-label">Upload Image</label>
+                    <input type="file" id="uploadInput" accept="image/*" onchange="handleImageUpload(this)">
+                </div>
+
+                <div class="row-2">
+                    <button class="btn btn-predict" onclick="predict()">PREDICT</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="prediction-display">
+                <div>
+                    <div style="font-size: 14px; opacity: 0.8; text-transform: uppercase; letter-spacing: 1px;">Result</div>
+                    <div style="font-size: 20px; font-weight: bold;">Prediction:</div>
+                </div>
+                <div id="result" class="big-number">?</div>
+            </div>
+            
+            <div class="chart-wrapper">
+                <canvas id="probChart"></canvas>
+            </div>
+            
+            <div class="footer-note" id="modelInfo">
+                Input: 784 features (pixels)
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
